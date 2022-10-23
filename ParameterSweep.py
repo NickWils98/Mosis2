@@ -2,6 +2,9 @@ import pandas as pd
 import os
 from sklearn.metrics import mean_squared_error
 
+__makecsv__ = False
+#__makecsv__ = True
+
 MSE_index = 150
 MSE_value = float('inf')
 
@@ -11,10 +14,12 @@ if __name__ == '__main__':
 
     start_S = 150
     end_S = 300
-    # for S in range(start_S, end_S+1):
-        # os.system(f"./ODE/ODE -override S={S}")
-        # YachtPlant = pd.read_csv("ODE_res.csv", delimiter=",", skiprows=[2, 3, 84], usecols=["time", "v"])
-        # YachtPlant.to_csv(f"csv/S{S}.csv", index=False)
+
+    if __makecsv__:
+        for S in range(start_S, end_S+1):
+            os.system(f"./ODE/ODE -override S={S}")
+            YachtPlant = pd.read_csv("ODE_res.csv", delimiter=",", skiprows=[2, 3, 84], usecols=["time", "v"])
+            YachtPlant.to_csv(f"csv/S{S}.csv", index=False)
 
     for S in range(start_S, end_S+1):
         S_csv = pd.read_csv(f"csv/S{S}.csv")
