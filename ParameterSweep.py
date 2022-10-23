@@ -12,12 +12,13 @@ if __name__ == '__main__':
     start_S = 150
     end_S = 300
 
-    for S in range(start_S, end_S+1):
+    # for S in range(start_S, end_S+1):
         # os.system(f"./ODE/ODE -override S={S}")
         # YachtPlant = pd.read_csv("ODE_res.csv", delimiter=",", skiprows=[2, 3, 84], usecols=["time", "v"])
         # YachtPlant.to_csv(f"csv/S{S}.csv", index=False)
-    #     YachtPlant = pd.read_csv("ODE_res.csv", delimiter=",")
-    #     print(YachtPlant.head())
+
+    for S in range(start_S, end_S + 1):
+
         S_csv = pd.read_csv(f"csv/S{S}.csv")
         MSE_temp = mean_squared_error(acceleration_data.values, S_csv.values)
 
