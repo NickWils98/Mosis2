@@ -7,13 +7,13 @@ __makecsv__ = False
 
 MSE_index = 150
 MSE_value = float('inf')
+start_S = 150
+end_S = 300
 
 if __name__ == '__main__':
     acceleration_data = pd.read_csv("acceleration.csv")
     deceleration_data = pd.read_csv("deceleration.csv")
-
-    start_S = 150
-    end_S = 300
+    deceleration_data.v = deceleration_data.v.values[::-1]
 
     if __makecsv__:
         for S in range(start_S, end_S+1):
@@ -26,7 +26,7 @@ if __name__ == '__main__':
         MSE_ACC = mean_squared_error(acceleration_data.values, S_csv.values)
         MSE_DEC = mean_squared_error(deceleration_data.values, S_csv.values)
 
-        print(MSE_ACC+MSE_DEC)
+        print(f"For file S{S}.csv: MSE = {MSE_ACC + MSE_DEC}")
         if MSE_ACC+MSE_DEC < MSE_value:
             MSE_index = S
             MSE_value = MSE_ACC+MSE_DEC
