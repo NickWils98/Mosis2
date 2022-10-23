@@ -3,7 +3,7 @@ import os
 from sklearn.metrics import mean_squared_error
 
 MSE_index = 150
-MSE_value = 99999999999999999
+MSE_value = float('inf')
 
 if __name__ == '__main__':
 
@@ -18,12 +18,12 @@ if __name__ == '__main__':
         # YachtPlant.to_csv(f"csv/S{S}.csv", index=False)
 
     for S in range(start_S, end_S + 1):
-
         S_csv = pd.read_csv(f"csv/S{S}.csv")
         MSE_temp = mean_squared_error(acceleration_data.values, S_csv.values)
 
+        print(MSE_temp)
         if MSE_temp < MSE_value:
             MSE_index = S
             MSE_value = MSE_temp
 
-print(MSE_index)
+    print("Best MSE: " + MSE_index)
