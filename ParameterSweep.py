@@ -23,11 +23,12 @@ if __name__ == '__main__':
 
     for S in range(start_S, end_S+1):
         S_csv = pd.read_csv(f"csv/S{S}.csv")
-        MSE_temp = mean_squared_error(acceleration_data.values, S_csv.values)
+        MSE_ACC = mean_squared_error(acceleration_data.values, S_csv.values)
+        MSE_DEC = mean_squared_error(deceleration_data.values, S_csv.values)
 
-        print(MSE_temp)
-        if MSE_temp < MSE_value:
+        print(MSE_ACC+MSE_DEC)
+        if MSE_ACC+MSE_DEC < MSE_value:
             MSE_index = S
-            MSE_value = MSE_temp
+            MSE_value = MSE_ACC+MSE_DEC
 
-    print("Best MSE: " + str(MSE_index))
+    print("Best MSE: " + f"{MSE_index}")
