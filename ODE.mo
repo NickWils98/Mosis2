@@ -9,7 +9,7 @@ model ODE
   parameter Real Ft (unit="N") = 400;
 
   parameter Real S (unit="m2") = 100;
-  parameter Real rho (unit="kg/m3") = 1025;
+  parameter Real density (unit="kg/m3") = 1025;
   parameter Real k (unit="m2/s") = 1.188*10^(-6);
   parameter Real L (unit="m") = 21.54;
   parameter Real m (unit="kg") = 32000;
@@ -29,7 +29,7 @@ equation
   else
     Cf = 0.075/(log10(Re)-2)^2;
   end if;
-  Fr = (1/2)*rho*(v^2)*S*Cf;
+  Fr = (1/2)*density*(v^2)*S*Cf;
   der(v)/der(time) = (Ft-Fr)/m;
   F = Ft-Fr;
   
