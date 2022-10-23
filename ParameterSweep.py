@@ -30,4 +30,4 @@ if __name__ == '__main__':
             MSE_index = S
             MSE_value = MSE_temp
 
-    print("Best MSE: " + str(MSE_index))
+    print("Best MSE Acceleration: " + str(MSE_index))
