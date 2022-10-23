@@ -9,7 +9,7 @@ model ODE
   Real F(unit="N");
   parameter Real Ft (unit="N") = 400;
 
-  parameter Integer S (unit="m2") = 100;
+  parameter Real S (unit="m2") = 100;
   parameter Real rho (unit="kg/m3") = 1025;
   parameter Real k (unit="m2/s") = 1.188*10^(-6);
   parameter Real L (unit="m") = 21.54;
