@@ -1,7 +1,6 @@
 model ODE
 
   Real Fr(unit="N");
-  //Real t;
   Real Cf;
   
   Real a(unit="m/s2");
