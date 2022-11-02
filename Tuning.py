@@ -4,7 +4,7 @@ from sklearn.metrics import mean_squared_error
 
 MSE_value = float('inf')
 
-start_Kp = 6950
+start_Kp = 6000
 end_Kp = 7000
 
 start_Ki = 300
