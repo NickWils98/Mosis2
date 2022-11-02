@@ -24,7 +24,6 @@ end_Kd = 1
 if __name__ == '__main__':
     MSE_list = []
 
-
     best_Kp = 0
     best_Ki = 0
     best_Kd = 0
@@ -50,10 +49,12 @@ if __name__ == '__main__':
                         best_Kp = Kp
                         best_Ki = Ki
                         best_Kd = Kd
+                        best_index = best_temp
 
         print(f"Best Kp: {best_Kp}")
         print(f"Best Ki: {best_Ki}")
         print(f"Best Kd: {best_Kd}")
+
     '''if __MSE__:
         for S in range(start_S, end_S+1):
             S_csv_ac = pd.read_csv(f"csv/accelerate/S{S}.csv")
