@@ -21,7 +21,6 @@ end_Ki = 350
 start_Kd = -1
 end_Kd = 1
 
-
 if __name__ == '__main__':
     acceleration_data = pd.read_csv("acceleration.csv")
     deceleration_data = pd.read_csv("deceleration.csv")
@@ -32,10 +31,12 @@ if __name__ == '__main__':
     ilovenick = []
 
     if __make_csv__:
-        for Kp in range(start_Kp, end_Kp+1, 10):
+        for k in range(start_Kp, end_Kp+1, 10):
             for Ki in range(start_Ki, end_Ki+1):
+                Ti = Ki / k
                 for Kd in range(start_Kd, end_Kd+1):
-                    os.system(f"YachtPlant_accelerate/YachtPlant_accelerate -override S={S}")
+                    Td = Kd / k
+                    os.system(f"YachtPlant_accelerate/YachtPlant_accelerate -override k={k}, Ti={Ti}, Td={Td}")
                     YachtPlant = pd.read_csv("YachtPlant_accelerate_res.csv", delimiter=",",skiprows=[3,4],skipfooter=1, usecols=["time", "v"])
 
                     MSE = mean_squared_error(samples.values, model.values)
