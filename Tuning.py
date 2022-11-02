@@ -22,15 +22,18 @@ start_Kd = -1
 end_Kd = 1
 
 if __name__ == '__main__':
-    acceleration_data = pd.read_csv("acceleration.csv")
-    deceleration_data = pd.read_csv("deceleration.csv")
-    samples = acceleration_data.append(deceleration_data, ignore_index=True)
-
-    S_list = []
     MSE_list = []
 
+
+    best_Kp = 0
+    best_Ki = 0
+    best_Kd = 0
+    best_index = -1
+
     if __make_csv__:
-        for k in range(start_Kp, end_Kp+1, 10):
+        k_counter = 0
+        for Kp in range(start_Kp, end_Kp+1, 10):
+            k = Kp
             for Ki in range(start_Ki, end_Ki+1):
                 Ti = Ki / k
                 for Kd in range(start_Kd, end_Kd+1):
@@ -41,6 +44,16 @@ if __name__ == '__main__':
                     MSE = mean_squared_error(FullPlantPID.v, FullPlantPID.vi)
                     MSE_list.append(MSE)
 
+                    best_temp = MSE_list.index(min(MSE_list))
+
+                    if best_temp != best_index:
+                        best_Kp = Kp
+                        best_Ki = Ki
+                        best_Kd = Kd
+
+        print(f"Best Kp: {best_Kp}")
+        print(f"Best Ki: {best_Ki}")
+        print(f"Best Kd: {best_Kd}")
     '''if __MSE__:
         for S in range(start_S, end_S+1):
             S_csv_ac = pd.read_csv(f"csv/accelerate/S{S}.csv")
