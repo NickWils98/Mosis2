@@ -37,8 +37,8 @@ if __name__ == '__main__':
                 Ti = Ki / k
                 for Kd in range(start_Kd, end_Kd+1):
                     Td = Kd / k
-                    os.system(f"FullPlantControllerPID/FullPlantControllerPID -override k={k},Ti={Ti},Td={Td}")
-                    FullPlantPID = pd.read_csv("FullPlantControllerPID_res.csv", delimiter=",", skipfooter=1, usecols=["costfunction.v", "costfunction.vi"])
+                    os.system(f"FullPlantControllerPID/FullPlantControllerPID -override K={k},ti={Ti},td={Td}")
+                    FullPlantPID = pd.read_csv("FullPlantControllerPID_res1.csv", delimiter=",", skipfooter=1, usecols=["costfunction.v", "costfunction.vi"])
 
                     MSE = mean_squared_error(FullPlantPID.v, FullPlantPID.vi)
                     MSE_list.append(MSE)
