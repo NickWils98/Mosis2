@@ -1,0 +1,233 @@
+<?xml version = "1.0" encoding="UTF-8"?>
+
+<!-- description of the model interface using an extention of the FMI standard -->
+<fmiModelDescription
+  fmiVersion                          = "1.0"
+
+  modelName                           = "YachtPlant_accelerate"
+  modelIdentifier                     = "YachtPlant_accelerate"
+
+  OPENMODELICAHOME                    = "/usr/bin/.."
+
+  guid                                = "{c6cf8447-1027-4fcb-b8a9-9dfb9fad5de1}"
+
+  description                         = ""
+  generationTool                      = "OpenModelica Compiler OpenModelica 1.19.3"
+  generationDateAndTime               = "2022-11-02T04:47:52Z"
+
+  variableNamingConvention            = "structured"
+
+  numberOfEventIndicators             = "1"  cmt_numberOfEventIndicators             = "NG:       number of zero crossings,                           FMI"
+  numberOfTimeEvents                  = "0"  cmt_numberOfTimeEvents                  = "NG_SAM:   number of zero crossings that are samples,          OMC"
+
+  numberOfInputVariables              = "1"  cmt_numberOfInputVariables              = "NI:       number of inputvar on topmodel,                     OMC"
+  numberOfOutputVariables             = "2"  cmt_numberOfOutputVariables             = "NO:       number of outputvar on topmodel,                    OMC"
+
+  numberOfExternalObjects             = "0"  cmt_numberOfExternalObjects             = "NEXT:     number of external objects,                         OMC"
+  numberOfFunctions                   = "0"  cmt_numberOfFunctions                   = "NFUNC:    number of functions used by the simulation,         OMC"
+
+  numberOfContinuousStates            = "2"  cmt_numberOfContinuousStates            = "NX:       number of states,                                   FMI"
+  numberOfRealAlgebraicVariables      = "6"  cmt_numberOfRealAlgebraicVariables      = "NY:       number of real variables,                           OMC"
+  numberOfRealAlgebraicAliasVariables = "0"  cmt_numberOfRealAlgebraicAliasVariables = "NA:       number of alias variables,                          OMC"
+  numberOfRealParameters              = "5"  cmt_numberOfRealParameters              = "NP:       number of parameters,                               OMC"
+
+  numberOfIntegerAlgebraicVariables   = "0"  cmt_numberOfIntegerAlgebraicVariables   = "NYINT:    number of alg. int variables,                       OMC"
+  numberOfIntegerAliasVariables       = "0"  cmt_numberOfIntegerAliasVariables       = "NAINT:    number of alias int variables,                      OMC"
+  numberOfIntegerParameters           = "0"  cmt_numberOfIntegerParameters           = "NPINT:    number of int parameters,                           OMC"
+
+  numberOfStringAlgebraicVariables    = "0"  cmt_numberOfStringAlgebraicVariables    = "NYSTR:    number of alg. string variables,                    OMC"
+  numberOfStringAliasVariables        = "0"  cmt_numberOfStringAliasVariables        = "NASTR:    number of alias string variables,                   OMC"
+  numberOfStringParameters            = "0"  cmt_numberOfStringParameters            = "NPSTR:    number of string parameters,                        OMC"
+
+  numberOfBooleanAlgebraicVariables   = "0"  cmt_numberOfBooleanAlgebraicVariables   = "NYBOOL:   number of alg. bool variables,                      OMC"
+  numberOfBooleanAliasVariables       = "0"  cmt_numberOfBooleanAliasVariables       = "NABOOL:   number of alias bool variables,                     OMC"
+  numberOfBooleanParameters           = "0"  cmt_numberOfBooleanParameters           = "NPBOOL:   number of bool parameters,                          OMC" >
+
+
+  <!-- startTime, stopTime, tolerance are FMI specific, all others are OMC specific -->
+  <DefaultExperiment
+    startTime      = "0"
+    stopTime       = "400"
+    stepSize       = "5"
+    tolerance      = "1e-06"
+    solver        = "dassl"
+    outputFormat      = "csv"
+    variableFilter      = ".*" />
+
+  <!-- variables in the model -->
+  <ModelVariables>
+
+  <ScalarVariable
+    name = "v"
+    valueReference = "1000"
+    variability = "continuous" isDiscrete = "false"
+    causality = "output" isValueChangeable = "true"
+    alias = "noAlias"
+    classIndex = "0" classType = "rSta"
+    isProtected = "false" hideResult = ""
+    fileName = "/home/nick/Mosis2/YachtPlant.mo" startLine = "13" startColumn = "3" endLine = "14" endColumn = "203" fileWritable = "true">
+    <Real start="0.0" fixed="true" useNominal="false" unit="m/s" />
+  </ScalarVariable>
+  <ScalarVariable
+    name = "x"
+    valueReference = "1001"
+    variability = "continuous" isDiscrete = "false"
+    causality = "output" isValueChangeable = "true"
+    alias = "noAlias"
+    classIndex = "1" classType = "rSta"
+    isProtected = "false" hideResult = ""
+    fileName = "/home/nick/Mosis2/YachtPlant.mo" startLine = "15" startColumn = "3" endLine = "18" endColumn = "203" fileWritable = "true">
+    <Real start="0.0" fixed="true" useNominal="false" unit="m" />
+  </ScalarVariable>
+  <ScalarVariable
+    name = "der(v)"
+    valueReference = "1002"
+    variability = "continuous" isDiscrete = "false"
+    causality = "local" isValueChangeable = "false"
+    alias = "noAlias"
+    classIndex = "0" classType = "rDer"
+    isProtected = "false" hideResult = ""
+    fileName = "/home/nick/Mosis2/YachtPlant.mo" startLine = "13" startColumn = "3" endLine = "14" endColumn = "203" fileWritable = "true">
+    <Real fixed="false" useNominal="false" unit="m.s-2" />
+  </ScalarVariable>
+  <ScalarVariable
+    name = "der(x)"
+    valueReference = "1003"
+    variability = "continuous" isDiscrete = "false"
+    causality = "local" isValueChangeable = "false"
+    alias = "noAlias"
+    classIndex = "1" classType = "rDer"
+    isProtected = "false" hideResult = ""
+    fileName = "/home/nick/Mosis2/YachtPlant.mo" startLine = "15" startColumn = "3" endLine = "18" endColumn = "203" fileWritable = "true">
+    <Real fixed="false" useNominal="false" unit="m.s-1" />
+  </ScalarVariable>
+  <ScalarVariable
+    name = "Cf"
+    valueReference = "1004"
+    variability = "continuous" isDiscrete = "false"
+    causality = "local" isValueChangeable = "false"
+    alias = "noAlias"
+    classIndex = "0" classType = "rAlg"
+    isProtected = "false" hideResult = ""
+    fileName = "/home/nick/Mosis2/YachtPlant.mo" startLine = "3" startColumn = "3" endLine = "3" endColumn = "10" fileWritable = "true">
+    <Real start="0.0" fixed="false" useNominal="false" />
+  </ScalarVariable>
+  <ScalarVariable
+    name = "F"
+    valueReference = "1005"
+    variability = "continuous" isDiscrete = "false"
+    causality = "local" isValueChangeable = "false"
+    alias = "noAlias"
+    classIndex = "1" classType = "rAlg"
+    isProtected = "false" hideResult = ""
+    fileName = "/home/nick/Mosis2/YachtPlant.mo" startLine = "7" startColumn = "3" endLine = "7" endColumn = "19" fileWritable = "true">
+    <Real start="400.0" fixed="false" useNominal="false" unit="N" />
+  </ScalarVariable>
+  <ScalarVariable
+    name = "Fr"
+    valueReference = "1006"
+    variability = "continuous" isDiscrete = "false"
+    causality = "local" isValueChangeable = "false"
+    alias = "noAlias"
+    classIndex = "2" classType = "rAlg"
+    isProtected = "false" hideResult = ""
+    fileName = "/home/nick/Mosis2/YachtPlant.mo" startLine = "2" startColumn = "3" endLine = "2" endColumn = "20" fileWritable = "true">
+    <Real start="0.0" fixed="false" useNominal="false" unit="N" />
+  </ScalarVariable>
+  <ScalarVariable
+    name = "Ft"
+    valueReference = "1007"
+    variability = "continuous" isDiscrete = "false"
+    causality = "input" isValueChangeable = "true"
+    inputIndex = "0"
+    alias = "noAlias"
+    classIndex = "3" classType = "rAlg"
+    isProtected = "false" hideResult = ""
+    fileName = "/home/nick/Mosis2/YachtPlant.mo" startLine = "19" startColumn = "3" endLine = "20" endColumn = "200" fileWritable = "true">
+    <Real start="400.0" fixed="true" useNominal="false" unit="N" />
+  </ScalarVariable>
+  <ScalarVariable
+    name = "Re"
+    valueReference = "1008"
+    variability = "continuous" isDiscrete = "false"
+    causality = "local" isValueChangeable = "false"
+    alias = "noAlias"
+    classIndex = "4" classType = "rAlg"
+    isProtected = "false" hideResult = ""
+    fileName = "/home/nick/Mosis2/YachtPlant.mo" startLine = "6" startColumn = "3" endLine = "6" endColumn = "10" fileWritable = "true">
+    <Real start="0.0" fixed="false" useNominal="false" />
+  </ScalarVariable>
+  <ScalarVariable
+    name = "a"
+    valueReference = "1009"
+    variability = "continuous" isDiscrete = "false"
+    causality = "local" isValueChangeable = "false"
+    alias = "noAlias"
+    classIndex = "5" classType = "rAlg"
+    isProtected = "false" hideResult = ""
+    fileName = "/home/nick/Mosis2/YachtPlant.mo" startLine = "5" startColumn = "3" endLine = "5" endColumn = "22" fileWritable = "true">
+    <Real start="0.0125" fixed="false" useNominal="false" unit="m/s2" />
+  </ScalarVariable>
+  <ScalarVariable
+    name = "L"
+    valueReference = "1010"
+    variability = "parameter" isDiscrete = "true"
+    causality = "parameter" isValueChangeable = "true"
+    alias = "noAlias"
+    classIndex = "0" classType = "rPar"
+    isProtected = "false" hideResult = ""
+    fileName = "/home/nick/Mosis2/YachtPlant.mo" startLine = "11" startColumn = "3" endLine = "11" endColumn = "38" fileWritable = "true">
+    <Real start="21.54" fixed="true" useNominal="false" unit="m" />
+  </ScalarVariable>
+  <ScalarVariable
+    name = "S"
+    valueReference = "1011"
+    variability = "parameter" isDiscrete = "true"
+    causality = "parameter" isValueChangeable = "true"
+    alias = "noAlias"
+    classIndex = "1" classType = "rPar"
+    isProtected = "false" hideResult = ""
+    fileName = "/home/nick/Mosis2/YachtPlant.mo" startLine = "8" startColumn = "3" endLine = "8" endColumn = "37" fileWritable = "true">
+    <Real start="100.0" fixed="true" useNominal="false" unit="m2" />
+  </ScalarVariable>
+  <ScalarVariable
+    name = "density"
+    valueReference = "1012"
+    variability = "parameter" isDiscrete = "true"
+    causality = "parameter" isValueChangeable = "true"
+    alias = "noAlias"
+    classIndex = "2" classType = "rPar"
+    isProtected = "false" hideResult = ""
+    fileName = "/home/nick/Mosis2/YachtPlant.mo" startLine = "9" startColumn = "3" endLine = "9" endColumn = "47" fileWritable = "true">
+    <Real start="1025.0" fixed="true" useNominal="false" unit="kg/m3" />
+  </ScalarVariable>
+  <ScalarVariable
+    name = "k"
+    valueReference = "1013"
+    variability = "parameter" isDiscrete = "true"
+    causality = "parameter" isValueChangeable = "true"
+    alias = "noAlias"
+    classIndex = "3" classType = "rPar"
+    isProtected = "false" hideResult = ""
+    fileName = "/home/nick/Mosis2/YachtPlant.mo" startLine = "10" startColumn = "3" endLine = "10" endColumn = "49" fileWritable = "true">
+    <Real start="1.188e-06" fixed="true" useNominal="false" unit="m2/s" />
+  </ScalarVariable>
+  <ScalarVariable
+    name = "m"
+    valueReference = "1014"
+    variability = "parameter" isDiscrete = "true"
+    causality = "parameter" isValueChangeable = "true"
+    alias = "noAlias"
+    classIndex = "4" classType = "rPar"
+    isProtected = "false" hideResult = ""
+    fileName = "/home/nick/Mosis2/YachtPlant.mo" startLine = "12" startColumn = "3" endLine = "12" endColumn = "39" fileWritable = "true">
+    <Real start="32000.0" fixed="true" useNominal="false" unit="kg" />
+  </ScalarVariable>
+
+
+
+  </ModelVariables>
+
+
+</fmiModelDescription>
+

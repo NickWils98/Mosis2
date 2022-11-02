@@ -1,0 +1,303 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!-- description of the model interface using an extention of the FMI standard -->
+<fmiModelDescription cmt_numberOfBooleanAliasVariables="NABOOL:   number of alias bool variables,                     OMC" cmt_numberOfRealParameters="NP:       number of parameters,                               OMC" cmt_numberOfIntegerAlgebraicVariables="NYINT:    number of alg. int variables,                       OMC" cmt_numberOfInputVariables="NI:       number of inputvar on topmodel,                     OMC" cmt_numberOfRealAlgebraicVariables="NY:       number of real variables,                           OMC" cmt_numberOfStringAlgebraicVariables="NYSTR:    number of alg. string variables,                    OMC" guid="{1979beff-0ea7-4b8a-904d-76fb11c8e560}" numberOfContinuousStates="4" numberOfStringAliasVariables="0" numberOfStringAlgebraicVariables="0" cmt_numberOfRealAlgebraicAliasVariables="NA:       number of alias variables,                          OMC" modelName="FullPlantControllerPID" numberOfFunctions="5" numberOfBooleanAlgebraicVariables="1" fmiVersion="1.0" numberOfBooleanParameters="6" description="" numberOfEventIndicators="6" numberOfRealAlgebraicAliasVariables="18" numberOfStringParameters="2" modelIdentifier="FullPlantControllerPID" numberOfTimeEvents="0" numberOfOutputVariables="0" numberOfInputVariables="0" generationDateAndTime="2022-11-02T16:33:06Z" numberOfIntegerAliasVariables="0" numberOfRealParameters="42" variableNamingConvention="structured" cmt_numberOfIntegerAliasVariables="NAINT:    number of alias int variables,                      OMC" cmt_numberOfStringAliasVariables="NASTR:    number of alias string variables,                   OMC" cmt_numberOfContinuousStates="NX:       number of states,                                   FMI" cmt_numberOfTimeEvents="NG_SAM:   number of zero crossings that are samples,          OMC" OPENMODELICAHOME="/usr/bin/.." cmt_numberOfIntegerParameters="NPINT:    number of int parameters,                           OMC" cmt_numberOfExternalObjects="NEXT:     number of external objects,                         OMC" cmt_numberOfFunctions="NFUNC:    number of functions used by the simulation,         OMC" cmt_numberOfBooleanParameters="NPBOOL:   number of bool parameters,                          OMC" cmt_numberOfStringParameters="NPSTR:    number of string parameters,                        OMC" numberOfBooleanAliasVariables="0" generationTool="OpenModelica Compiler OpenModelica 1.19.3" cmt_numberOfOutputVariables="NO:       number of outputvar on topmodel,                    OMC" numberOfIntegerAlgebraicVariables="0" numberOfRealAlgebraicVariables="14" cmt_numberOfEventIndicators="NG:       number of zero crossings,                           FMI" cmt_numberOfBooleanAlgebraicVariables="NYBOOL:   number of alg. bool variables,                      OMC" numberOfExternalObjects="1" numberOfIntegerParameters="7">
+ <!-- startTime, stopTime, tolerance are FMI specific, all others are OMC specific -->
+ <DefaultExperiment outputFormat="mat" variableFilter=".*" startTime="0" solver="dassl" stopTime="600" stepSize="1" tolerance="1e-06"/>
+ <!-- variables in the model -->
+ <ModelVariables>
+  <ScalarVariable isValueChangeable="false" isDiscrete="false" classIndex="0" endLine="311" fileName="/home/nick/.openmodelica/libraries/Modelica 3.2.3+maint.om/Blocks/Continuous.mo" endColumn="50" alias="noAlias" variability="continuous" startLine="311" fileWritable="true" valueReference="1000" name="pid.D.x" hideResult="" causality="local" startColumn="5" isProtected="false" classType="rSta" description="State of block">
+   <Real fixed="true" useNominal="false"/>
+  </ScalarVariable>
+  <ScalarVariable isValueChangeable="false" isDiscrete="false" classIndex="1" endLine="330" fileName="/home/nick/.openmodelica/libraries/Modelica 3.2.3+maint.om/Blocks/Interfaces.mo" endColumn="56" alias="noAlias" variability="continuous" startLine="329" fileWritable="true" valueReference="1001" name="pid.I.y" hideResult="" causality="local" startColumn="5" isProtected="false" classType="rSta" description="Connector of Real output signal">
+   <Real fixed="false" useNominal="false"/>
+  </ScalarVariable>
+  <ScalarVariable name="yachtPlant.v" startColumn="3" valueReference="1002" isValueChangeable="true" classType="rSta" hideResult="" fileName="YachtPlant" endLine="14" isDiscrete="false" endColumn="203" fileWritable="true" variability="continuous" isProtected="false" startLine="13" causality="local" alias="noAlias" classIndex="2">
+   <Real fixed="true" useNominal="false" start="0.0" unit="m/s"/>
+  </ScalarVariable>
+  <ScalarVariable name="yachtPlant.x" startColumn="3" valueReference="1003" isValueChangeable="true" classType="rSta" hideResult="" fileName="YachtPlant" endLine="18" isDiscrete="false" endColumn="203" fileWritable="true" variability="continuous" isProtected="false" startLine="15" causality="local" alias="noAlias" classIndex="3">
+   <Real fixed="true" useNominal="false" start="0.0" unit="m"/>
+  </ScalarVariable>
+  <ScalarVariable isValueChangeable="false" isDiscrete="false" classIndex="0" endLine="311" fileName="/home/nick/.openmodelica/libraries/Modelica 3.2.3+maint.om/Blocks/Continuous.mo" endColumn="50" alias="noAlias" variability="continuous" startLine="311" fileWritable="true" valueReference="1004" name="der(pid.D.x)" hideResult="" causality="local" startColumn="5" isProtected="false" classType="rDer" description="der(State of block)">
+   <Real fixed="false" useNominal="false"/>
+  </ScalarVariable>
+  <ScalarVariable isValueChangeable="false" isDiscrete="false" classIndex="1" endLine="330" fileName="/home/nick/.openmodelica/libraries/Modelica 3.2.3+maint.om/Blocks/Interfaces.mo" endColumn="56" alias="noAlias" variability="continuous" startLine="329" fileWritable="true" valueReference="1005" name="der(pid.I.y)" hideResult="" causality="local" startColumn="5" isProtected="false" classType="rDer" description="der(Connector of Real output signal)">
+   <Real fixed="false" useNominal="false"/>
+  </ScalarVariable>
+  <ScalarVariable name="der(yachtPlant.v)" startColumn="3" valueReference="1006" isValueChangeable="false" classType="rDer" hideResult="" fileName="YachtPlant" endLine="14" isDiscrete="false" endColumn="203" fileWritable="true" variability="continuous" isProtected="false" startLine="13" causality="local" alias="noAlias" classIndex="2">
+   <Real fixed="false" useNominal="false" unit="m.s-2"/>
+  </ScalarVariable>
+  <ScalarVariable name="der(yachtPlant.x)" startColumn="3" valueReference="1007" isValueChangeable="false" classType="rDer" hideResult="" fileName="YachtPlant" endLine="18" isDiscrete="false" endColumn="203" fileWritable="true" variability="continuous" isProtected="false" startLine="15" causality="local" alias="noAlias" classIndex="3">
+   <Real fixed="false" useNominal="true" start="0.0" nominal="1.0" unit="m.s-1"/>
+  </ScalarVariable>
+  <ScalarVariable name="costfunction.cost" startColumn="3" valueReference="1008" isValueChangeable="false" classType="rAlg" hideResult="" fileName="Costfunction" endLine="7" isDiscrete="false" endColumn="199" fileWritable="true" variability="continuous" isProtected="false" startLine="6" causality="local" alias="noAlias" classIndex="0">
+   <Real fixed="false" useNominal="false" start="0.0"/>
+  </ScalarVariable>
+  <ScalarVariable name="costfunction.vi" startColumn="3" valueReference="1009" isValueChangeable="false" classType="rAlg" hideResult="" fileName="Costfunction" endLine="3" isDiscrete="false" endColumn="202" fileWritable="true" variability="continuous" isProtected="false" startLine="2" causality="local" alias="noAlias" classIndex="1">
+   <Real fixed="false" useNominal="false" start="0.0"/>
+  </ScalarVariable>
+  <ScalarVariable isValueChangeable="false" isDiscrete="false" classIndex="2" endLine="301" fileName="/home/nick/.openmodelica/libraries/Modelica 3.2.3+maint.om/Blocks/Interfaces.mo" endColumn="56" alias="noAlias" variability="continuous" startLine="300" fileWritable="true" valueReference="1010" name="lookUp.continuousClock.y" hideResult="" causality="local" startColumn="5" isProtected="false" classType="rAlg" description="Connector of Real output signal">
+   <Real fixed="false" useNominal="false" start="0.0"/>
+  </ScalarVariable>
+  <ScalarVariable name="min.vv" startColumn="3" valueReference="1011" isValueChangeable="false" classType="rAlg" hideResult="" fileName="/home/nick/Mosis2/Tuning/Min.mo" endLine="7" isDiscrete="false" endColumn="197" fileWritable="true" variability="continuous" isProtected="false" startLine="6" causality="local" alias="noAlias" classIndex="3">
+   <Real fixed="false" useNominal="false" start="0.0"/>
+  </ScalarVariable>
+  <ScalarVariable isValueChangeable="false" isDiscrete="false" classIndex="4" endLine="978" fileName="/home/nick/.openmodelica/libraries/Modelica 3.2.3+maint.om/Blocks/Math.mo" endColumn="64" alias="noAlias" variability="continuous" startLine="977" fileWritable="true" valueReference="1012" name="pid.Add.y" hideResult="" causality="local" startColumn="5" isProtected="false" classType="rAlg" description="Connector of Real output signal">
+   <Real fixed="false" useNominal="false" start="0.0"/>
+  </ScalarVariable>
+  <ScalarVariable isValueChangeable="false" isDiscrete="false" classIndex="5" endLine="330" fileName="/home/nick/.openmodelica/libraries/Modelica 3.2.3+maint.om/Blocks/Interfaces.mo" endColumn="56" alias="noAlias" variability="continuous" startLine="329" fileWritable="true" valueReference="1013" name="pid.D.y" hideResult="" causality="local" startColumn="5" isProtected="false" classType="rAlg" description="Connector of Real output signal">
+   <Real fixed="true" useNominal="false"/>
+  </ScalarVariable>
+  <ScalarVariable name="pid.I.local_set" startColumn="5" valueReference="1014" isValueChangeable="false" classType="rAlg" hideResult="true" fileName="/home/nick/.openmodelica/libraries/Modelica 3.2.3+maint.om/Blocks/Continuous.mo" endLine="37" isDiscrete="false" endColumn="80" fileWritable="true" variability="continuous" isProtected="true" startLine="37" causality="local" alias="noAlias" classIndex="6">
+   <Real fixed="true" useNominal="false"/>
+  </ScalarVariable>
+  <ScalarVariable isValueChangeable="false" isDiscrete="false" classIndex="7" endLine="549" fileName="/home/nick/.openmodelica/libraries/Modelica 3.2.3+maint.om/Blocks/Math.mo" endColumn="56" alias="noAlias" variability="continuous" startLine="548" fileWritable="true" valueReference="1015" name="pid.P.y" hideResult="" causality="local" startColumn="5" isProtected="false" classType="rAlg" description="Output signal connector">
+   <Real fixed="false" useNominal="false" start="0.0"/>
+  </ScalarVariable>
+  <ScalarVariable isValueChangeable="false" isDiscrete="false" classIndex="8" endLine="330" fileName="/home/nick/.openmodelica/libraries/Modelica 3.2.3+maint.om/Blocks/Interfaces.mo" endColumn="56" alias="noAlias" variability="continuous" startLine="329" fileWritable="true" valueReference="1016" name="pid.y" hideResult="" causality="local" startColumn="5" isProtected="false" classType="rAlg" description="Connector of Real output signal">
+   <Real fixed="false" useNominal="false" start="0.0"/>
+  </ScalarVariable>
+  <ScalarVariable name="yachtPlant.Cf" startColumn="3" valueReference="1017" isValueChangeable="false" classType="rAlg" hideResult="" fileName="YachtPlant" endLine="3" isDiscrete="false" endColumn="10" fileWritable="true" variability="continuous" isProtected="false" startLine="3" causality="local" alias="noAlias" classIndex="9">
+   <Real fixed="false" useNominal="false" start="0.0"/>
+  </ScalarVariable>
+  <ScalarVariable name="yachtPlant.F" startColumn="3" valueReference="1018" isValueChangeable="false" classType="rAlg" hideResult="" fileName="YachtPlant" endLine="7" isDiscrete="false" endColumn="19" fileWritable="true" variability="continuous" isProtected="false" startLine="7" causality="local" alias="noAlias" classIndex="10">
+   <Real fixed="false" useNominal="false" start="0.0" unit="N"/>
+  </ScalarVariable>
+  <ScalarVariable name="yachtPlant.Fr" startColumn="3" valueReference="1019" isValueChangeable="false" classType="rAlg" hideResult="" fileName="YachtPlant" endLine="2" isDiscrete="false" endColumn="20" fileWritable="true" variability="continuous" isProtected="false" startLine="2" causality="local" alias="noAlias" classIndex="11">
+   <Real fixed="false" useNominal="false" start="0.0" unit="N"/>
+  </ScalarVariable>
+  <ScalarVariable name="yachtPlant.Re" startColumn="3" valueReference="1020" isValueChangeable="false" classType="rAlg" hideResult="" fileName="YachtPlant" endLine="6" isDiscrete="false" endColumn="10" fileWritable="true" variability="continuous" isProtected="false" startLine="6" causality="local" alias="noAlias" classIndex="12">
+   <Real fixed="false" useNominal="false" start="0.0"/>
+  </ScalarVariable>
+  <ScalarVariable name="yachtPlant.a" startColumn="3" valueReference="1021" isValueChangeable="false" classType="rAlg" hideResult="" fileName="YachtPlant" endLine="5" isDiscrete="false" endColumn="22" fileWritable="true" variability="continuous" isProtected="false" startLine="5" causality="local" alias="noAlias" classIndex="13">
+   <Real fixed="false" useNominal="false" start="0.0" unit="m/s2"/>
+  </ScalarVariable>
+  <ScalarVariable name="K" startColumn="3" valueReference="1022" isValueChangeable="true" classType="rPar" hideResult="" fileName="/home/nick/Mosis2/Tuning/FullPlantControllerPID.mo" endLine="4" isDiscrete="true" endColumn="26" fileWritable="true" variability="parameter" isProtected="false" startLine="4" causality="parameter" alias="noAlias" classIndex="0">
+   <Real fixed="true" useNominal="false" start="40"/>
+  </ScalarVariable>
+  <ScalarVariable isValueChangeable="true" isDiscrete="true" classIndex="1" endLine="479" fileName="/home/nick/.openmodelica/libraries/Modelica 3.2.3+maint.om/Blocks/Interfaces.mo" endColumn="56" alias="noAlias" variability="parameter" startLine="479" fileWritable="true" valueReference="1023" name="lookUp.continuousClock.offset" hideResult="" causality="parameter" startColumn="5" isProtected="false" classType="rPar" description="Offset of output signal y">
+   <Real fixed="true" useNominal="false" start="0.0"/>
+  </ScalarVariable>
+  <ScalarVariable isValueChangeable="true" isDiscrete="true" classIndex="2" endLine="480" fileName="/home/nick/.openmodelica/libraries/Modelica 3.2.3+maint.om/Blocks/Interfaces.mo" endColumn="80" alias="noAlias" variability="parameter" startLine="480" fileWritable="true" valueReference="1024" name="lookUp.continuousClock.startTime" hideResult="" causality="parameter" startColumn="5" isProtected="false" classType="rPar" description="Output y = offset for time &lt; startTime">
+   <Real fixed="true" useNominal="false" start="0.0" unit="s"/>
+  </ScalarVariable>
+  <ScalarVariable isValueChangeable="true" isDiscrete="true" classIndex="3" endLine="13" fileName="/home/nick/.openmodelica/libraries/Modelica 3.2.3+maint.om/Blocks/Tables.mo" endColumn="80" alias="noAlias" variability="parameter" startLine="11" fileWritable="true" valueReference="1025" name="lookUp.lookupTable.combiTable1D.table[1,1]" hideResult="" causality="parameter" startColumn="5" isProtected="false" classType="rPar" description="Table matrix (grid = first column; e.g., table=[0, 0; 1, 1; 2, 4])">
+   <Real fixed="true" useNominal="false" start="0.0"/>
+  </ScalarVariable>
+  <ScalarVariable isValueChangeable="true" isDiscrete="true" classIndex="4" endLine="13" fileName="/home/nick/.openmodelica/libraries/Modelica 3.2.3+maint.om/Blocks/Tables.mo" endColumn="80" alias="noAlias" variability="parameter" startLine="11" fileWritable="true" valueReference="1026" name="lookUp.lookupTable.combiTable1D.table[1,2]" hideResult="" causality="parameter" startColumn="5" isProtected="false" classType="rPar" description="Table matrix (grid = first column; e.g., table=[0, 0; 1, 1; 2, 4])">
+   <Real fixed="true" useNominal="false" start="0.0"/>
+  </ScalarVariable>
+  <ScalarVariable isValueChangeable="true" isDiscrete="true" classIndex="5" endLine="13" fileName="/home/nick/.openmodelica/libraries/Modelica 3.2.3+maint.om/Blocks/Tables.mo" endColumn="80" alias="noAlias" variability="parameter" startLine="11" fileWritable="true" valueReference="1027" name="lookUp.lookupTable.combiTable1D.table[2,1]" hideResult="" causality="parameter" startColumn="5" isProtected="false" classType="rPar" description="Table matrix (grid = first column; e.g., table=[0, 0; 1, 1; 2, 4])">
+   <Real fixed="true" useNominal="false" start="10.0"/>
+  </ScalarVariable>
+  <ScalarVariable isValueChangeable="true" isDiscrete="true" classIndex="6" endLine="13" fileName="/home/nick/.openmodelica/libraries/Modelica 3.2.3+maint.om/Blocks/Tables.mo" endColumn="80" alias="noAlias" variability="parameter" startLine="11" fileWritable="true" valueReference="1028" name="lookUp.lookupTable.combiTable1D.table[2,2]" hideResult="" causality="parameter" startColumn="5" isProtected="false" classType="rPar" description="Table matrix (grid = first column; e.g., table=[0, 0; 1, 1; 2, 4])">
+   <Real fixed="true" useNominal="false" start="5.0"/>
+  </ScalarVariable>
+  <ScalarVariable isValueChangeable="true" isDiscrete="true" classIndex="7" endLine="13" fileName="/home/nick/.openmodelica/libraries/Modelica 3.2.3+maint.om/Blocks/Tables.mo" endColumn="80" alias="noAlias" variability="parameter" startLine="11" fileWritable="true" valueReference="1029" name="lookUp.lookupTable.combiTable1D.table[3,1]" hideResult="" causality="parameter" startColumn="5" isProtected="false" classType="rPar" description="Table matrix (grid = first column; e.g., table=[0, 0; 1, 1; 2, 4])">
+   <Real fixed="true" useNominal="false" start="210.0"/>
+  </ScalarVariable>
+  <ScalarVariable isValueChangeable="true" isDiscrete="true" classIndex="8" endLine="13" fileName="/home/nick/.openmodelica/libraries/Modelica 3.2.3+maint.om/Blocks/Tables.mo" endColumn="80" alias="noAlias" variability="parameter" startLine="11" fileWritable="true" valueReference="1030" name="lookUp.lookupTable.combiTable1D.table[3,2]" hideResult="" causality="parameter" startColumn="5" isProtected="false" classType="rPar" description="Table matrix (grid = first column; e.g., table=[0, 0; 1, 1; 2, 4])">
+   <Real fixed="true" useNominal="false" start="10.0"/>
+  </ScalarVariable>
+  <ScalarVariable isValueChangeable="true" isDiscrete="true" classIndex="9" endLine="13" fileName="/home/nick/.openmodelica/libraries/Modelica 3.2.3+maint.om/Blocks/Tables.mo" endColumn="80" alias="noAlias" variability="parameter" startLine="11" fileWritable="true" valueReference="1031" name="lookUp.lookupTable.combiTable1D.table[4,1]" hideResult="" causality="parameter" startColumn="5" isProtected="false" classType="rPar" description="Table matrix (grid = first column; e.g., table=[0, 0; 1, 1; 2, 4])">
+   <Real fixed="true" useNominal="false" start="300.0"/>
+  </ScalarVariable>
+  <ScalarVariable isValueChangeable="true" isDiscrete="true" classIndex="10" endLine="13" fileName="/home/nick/.openmodelica/libraries/Modelica 3.2.3+maint.om/Blocks/Tables.mo" endColumn="80" alias="noAlias" variability="parameter" startLine="11" fileWritable="true" valueReference="1032" name="lookUp.lookupTable.combiTable1D.table[4,2]" hideResult="" causality="parameter" startColumn="5" isProtected="false" classType="rPar" description="Table matrix (grid = first column; e.g., table=[0, 0; 1, 1; 2, 4])">
+   <Real fixed="true" useNominal="false" start="4.0"/>
+  </ScalarVariable>
+  <ScalarVariable isValueChangeable="true" isDiscrete="true" classIndex="11" endLine="13" fileName="/home/nick/.openmodelica/libraries/Modelica 3.2.3+maint.om/Blocks/Tables.mo" endColumn="80" alias="noAlias" variability="parameter" startLine="11" fileWritable="true" valueReference="1033" name="lookUp.lookupTable.combiTable1D.table[5,1]" hideResult="" causality="parameter" startColumn="5" isProtected="false" classType="rPar" description="Table matrix (grid = first column; e.g., table=[0, 0; 1, 1; 2, 4])">
+   <Real fixed="true" useNominal="false" start="440.0"/>
+  </ScalarVariable>
+  <ScalarVariable isValueChangeable="true" isDiscrete="true" classIndex="12" endLine="13" fileName="/home/nick/.openmodelica/libraries/Modelica 3.2.3+maint.om/Blocks/Tables.mo" endColumn="80" alias="noAlias" variability="parameter" startLine="11" fileWritable="true" valueReference="1034" name="lookUp.lookupTable.combiTable1D.table[5,2]" hideResult="" causality="parameter" startColumn="5" isProtected="false" classType="rPar" description="Table matrix (grid = first column; e.g., table=[0, 0; 1, 1; 2, 4])">
+   <Real fixed="true" useNominal="false" start="8.0"/>
+  </ScalarVariable>
+  <ScalarVariable isValueChangeable="true" isDiscrete="true" classIndex="13" endLine="13" fileName="/home/nick/.openmodelica/libraries/Modelica 3.2.3+maint.om/Blocks/Tables.mo" endColumn="80" alias="noAlias" variability="parameter" startLine="11" fileWritable="true" valueReference="1035" name="lookUp.lookupTable.combiTable1D.table[6,1]" hideResult="" causality="parameter" startColumn="5" isProtected="false" classType="rPar" description="Table matrix (grid = first column; e.g., table=[0, 0; 1, 1; 2, 4])">
+   <Real fixed="true" useNominal="false" start="520.0"/>
+  </ScalarVariable>
+  <ScalarVariable isValueChangeable="true" isDiscrete="true" classIndex="14" endLine="13" fileName="/home/nick/.openmodelica/libraries/Modelica 3.2.3+maint.om/Blocks/Tables.mo" endColumn="80" alias="noAlias" variability="parameter" startLine="11" fileWritable="true" valueReference="1036" name="lookUp.lookupTable.combiTable1D.table[6,2]" hideResult="" causality="parameter" startColumn="5" isProtected="false" classType="rPar" description="Table matrix (grid = first column; e.g., table=[0, 0; 1, 1; 2, 4])">
+   <Real fixed="true" useNominal="false" start="3.0"/>
+  </ScalarVariable>
+  <ScalarVariable isValueChangeable="false" isDiscrete="true" classIndex="15" endLine="41" fileName="/home/nick/.openmodelica/libraries/Modelica 3.2.3+maint.om/Blocks/Tables.mo" endColumn="48" alias="noAlias" variability="parameter" startLine="40" fileWritable="true" valueReference="1037" name="lookUp.lookupTable.combiTable1D.u_max" hideResult="" causality="calculatedParameter" startColumn="5" isProtected="false" classType="rPar" description="Maximum abscissa value defined in table">
+   <Real fixed="true" useNominal="false"/>
+  </ScalarVariable>
+  <ScalarVariable isValueChangeable="false" isDiscrete="true" classIndex="16" endLine="39" fileName="/home/nick/.openmodelica/libraries/Modelica 3.2.3+maint.om/Blocks/Tables.mo" endColumn="48" alias="noAlias" variability="parameter" startLine="38" fileWritable="true" valueReference="1038" name="lookUp.lookupTable.combiTable1D.u_min" hideResult="" causality="calculatedParameter" startColumn="5" isProtected="false" classType="rPar" description="Minimum abscissa value defined in table">
+   <Real fixed="true" useNominal="false"/>
+  </ScalarVariable>
+  <ScalarVariable isValueChangeable="true" isDiscrete="true" classIndex="17" endLine="968" fileName="/home/nick/.openmodelica/libraries/Modelica 3.2.3+maint.om/Blocks/Math.mo" endColumn="50" alias="noAlias" variability="parameter" startLine="968" fileWritable="true" valueReference="1039" name="pid.Add.k1" hideResult="" causality="parameter" startColumn="5" isProtected="false" classType="rPar" description="Gain of input signal 1">
+   <Real fixed="true" useNominal="false" start="1.0"/>
+  </ScalarVariable>
+  <ScalarVariable isValueChangeable="true" isDiscrete="true" classIndex="18" endLine="969" fileName="/home/nick/.openmodelica/libraries/Modelica 3.2.3+maint.om/Blocks/Math.mo" endColumn="50" alias="noAlias" variability="parameter" startLine="969" fileWritable="true" valueReference="1040" name="pid.Add.k2" hideResult="" causality="parameter" startColumn="5" isProtected="false" classType="rPar" description="Gain of input signal 2">
+   <Real fixed="true" useNominal="false" start="1.0"/>
+  </ScalarVariable>
+  <ScalarVariable isValueChangeable="true" isDiscrete="true" classIndex="19" endLine="970" fileName="/home/nick/.openmodelica/libraries/Modelica 3.2.3+maint.om/Blocks/Math.mo" endColumn="50" alias="noAlias" variability="parameter" startLine="970" fileWritable="true" valueReference="1041" name="pid.Add.k3" hideResult="" causality="parameter" startColumn="5" isProtected="false" classType="rPar" description="Gain of input signal 3">
+   <Real fixed="true" useNominal="false" start="1.0"/>
+  </ScalarVariable>
+  <ScalarVariable isValueChangeable="false" isDiscrete="true" classIndex="20" endLine="299" fileName="/home/nick/.openmodelica/libraries/Modelica 3.2.3+maint.om/Blocks/Continuous.mo" endColumn="69" alias="noAlias" variability="parameter" startLine="298" fileWritable="true" valueReference="1042" name="pid.D.T" hideResult="" causality="calculatedParameter" startColumn="5" isProtected="false" classType="rPar" description="Time constants (T>0 required; T=0 is ideal derivative block)">
+   <Real fixed="true" useNominal="false" min="1e-60" unit="s"/>
+  </ScalarVariable>
+  <ScalarVariable isValueChangeable="false" isDiscrete="true" classIndex="21" endLine="297" fileName="/home/nick/.openmodelica/libraries/Modelica 3.2.3+maint.om/Blocks/Continuous.mo" endColumn="41" alias="noAlias" variability="parameter" startLine="297" fileWritable="true" valueReference="1043" name="pid.D.k" hideResult="" causality="calculatedParameter" startColumn="5" isProtected="false" classType="rPar" description="Gains">
+   <Real fixed="true" useNominal="false" unit="1"/>
+  </ScalarVariable>
+  <ScalarVariable isValueChangeable="false" isDiscrete="true" classIndex="22" endLine="305" fileName="/home/nick/.openmodelica/libraries/Modelica 3.2.3+maint.om/Blocks/Continuous.mo" endColumn="50" alias="noAlias" variability="parameter" startLine="304" fileWritable="true" valueReference="1044" name="pid.D.x_start" hideResult="" causality="calculatedParameter" startColumn="5" isProtected="false" classType="rPar" description="Initial or guess value of state">
+   <Real fixed="true" useNominal="false"/>
+  </ScalarVariable>
+  <ScalarVariable isValueChangeable="true" isDiscrete="true" classIndex="23" endLine="308" fileName="/home/nick/.openmodelica/libraries/Modelica 3.2.3+maint.om/Blocks/Continuous.mo" endColumn="31" alias="noAlias" variability="parameter" startLine="306" fileWritable="true" valueReference="1045" name="pid.D.y_start" hideResult="" causality="parameter" startColumn="5" isProtected="false" classType="rPar" description="Initial value of output (= state)">
+   <Real fixed="true" useNominal="false" start="0.0"/>
+  </ScalarVariable>
+  <ScalarVariable isValueChangeable="false" isDiscrete="true" classIndex="24" endLine="544" fileName="/home/nick/.openmodelica/libraries/Modelica 3.2.3+maint.om/Blocks/Math.mo" endColumn="48" alias="noAlias" variability="parameter" startLine="543" fileWritable="true" valueReference="1046" name="pid.Gain.k" hideResult="" causality="calculatedParameter" startColumn="5" isProtected="false" classType="rPar" description="Gain value multiplied with input signal">
+   <Real fixed="true" useNominal="false" unit="1"/>
+  </ScalarVariable>
+  <ScalarVariable isValueChangeable="false" isDiscrete="true" classIndex="25" endLine="10" fileName="/home/nick/.openmodelica/libraries/Modelica 3.2.3+maint.om/Blocks/Continuous.mo" endColumn="51" alias="noAlias" variability="parameter" startLine="10" fileWritable="true" valueReference="1047" name="pid.I.k" hideResult="" causality="calculatedParameter" startColumn="5" isProtected="false" classType="rPar" description="Integrator gain">
+   <Real fixed="true" useNominal="false" unit="1"/>
+  </ScalarVariable>
+  <ScalarVariable isValueChangeable="false" isDiscrete="true" classIndex="26" endLine="23" fileName="/home/nick/.openmodelica/libraries/Modelica 3.2.3+maint.om/Blocks/Continuous.mo" endColumn="50" alias="noAlias" variability="parameter" startLine="22" fileWritable="true" valueReference="1048" name="pid.I.y_start" hideResult="" causality="calculatedParameter" startColumn="5" isProtected="false" classType="rPar" description="Initial or guess value of output (= state)">
+   <Real fixed="true" useNominal="false"/>
+  </ScalarVariable>
+  <ScalarVariable isValueChangeable="true" isDiscrete="true" classIndex="27" endLine="720" fileName="/home/nick/.openmodelica/libraries/Modelica 3.2.3+maint.om/Blocks/Continuous.mo" endColumn="59" alias="noAlias" variability="parameter" startLine="719" fileWritable="true" valueReference="1049" name="pid.Nd" hideResult="" causality="parameter" startColumn="5" isProtected="false" classType="rPar" description="The higher Nd, the more ideal the derivative block">
+   <Real fixed="true" useNominal="false" start="10.0" min="1e-60"/>
+  </ScalarVariable>
+  <ScalarVariable isValueChangeable="true" isDiscrete="true" classIndex="28" endLine="544" fileName="/home/nick/.openmodelica/libraries/Modelica 3.2.3+maint.om/Blocks/Math.mo" endColumn="48" alias="noAlias" variability="parameter" startLine="543" fileWritable="true" valueReference="1050" name="pid.P.k" hideResult="" causality="parameter" startColumn="5" isProtected="false" classType="rPar" description="Gain value multiplied with input signal">
+   <Real fixed="true" useNominal="false" start="1.0" unit="1"/>
+  </ScalarVariable>
+  <ScalarVariable isValueChangeable="false" isDiscrete="true" classIndex="29" endLine="718" fileName="/home/nick/.openmodelica/libraries/Modelica 3.2.3+maint.om/Blocks/Continuous.mo" endColumn="42" alias="noAlias" variability="parameter" startLine="717" fileWritable="true" valueReference="1051" name="pid.Td" hideResult="" causality="calculatedParameter" startColumn="5" isProtected="false" classType="rPar" description="Time Constant of Derivative block">
+   <Real fixed="true" useNominal="false" min="0.0" unit="s"/>
+  </ScalarVariable>
+  <ScalarVariable isValueChangeable="false" isDiscrete="true" classIndex="30" endLine="716" fileName="/home/nick/.openmodelica/libraries/Modelica 3.2.3+maint.om/Blocks/Continuous.mo" endColumn="36" alias="noAlias" variability="parameter" startLine="715" fileWritable="true" valueReference="1052" name="pid.Ti" hideResult="" causality="calculatedParameter" startColumn="5" isProtected="false" classType="rPar" description="Time Constant of Integrator">
+   <Real fixed="true" useNominal="false" min="1e-60" unit="s"/>
+  </ScalarVariable>
+  <ScalarVariable isValueChangeable="false" isDiscrete="true" classIndex="31" endLine="714" fileName="/home/nick/.openmodelica/libraries/Modelica 3.2.3+maint.om/Blocks/Continuous.mo" endColumn="40" alias="noAlias" variability="parameter" startLine="714" fileWritable="true" valueReference="1053" name="pid.k" hideResult="" causality="calculatedParameter" startColumn="5" isProtected="false" classType="rPar" description="Gain">
+   <Real fixed="true" useNominal="false" unit="1"/>
+  </ScalarVariable>
+  <ScalarVariable isValueChangeable="true" isDiscrete="true" classIndex="32" endLine="730" fileName="/home/nick/.openmodelica/libraries/Modelica 3.2.3+maint.om/Blocks/Continuous.mo" endColumn="50" alias="noAlias" variability="parameter" startLine="728" fileWritable="true" valueReference="1054" name="pid.xd_start" hideResult="" causality="parameter" startColumn="5" isProtected="false" classType="rPar" description="Initial or guess value for state of derivative block">
+   <Real fixed="true" useNominal="false" start="0.0"/>
+  </ScalarVariable>
+  <ScalarVariable isValueChangeable="true" isDiscrete="true" classIndex="33" endLine="727" fileName="/home/nick/.openmodelica/libraries/Modelica 3.2.3+maint.om/Blocks/Continuous.mo" endColumn="50" alias="noAlias" variability="parameter" startLine="725" fileWritable="true" valueReference="1055" name="pid.xi_start" hideResult="" causality="parameter" startColumn="5" isProtected="false" classType="rPar" description="Initial or guess value for integrator output (= integrator state)">
+   <Real fixed="true" useNominal="false" start="0.0"/>
+  </ScalarVariable>
+  <ScalarVariable isValueChangeable="true" isDiscrete="true" classIndex="34" endLine="733" fileName="/home/nick/.openmodelica/libraries/Modelica 3.2.3+maint.om/Blocks/Continuous.mo" endColumn="31" alias="noAlias" variability="parameter" startLine="731" fileWritable="true" valueReference="1056" name="pid.y_start" hideResult="" causality="parameter" startColumn="5" isProtected="false" classType="rPar" description="Initial value of output">
+   <Real fixed="true" useNominal="false" start="0.0"/>
+  </ScalarVariable>
+  <ScalarVariable name="td" startColumn="3" valueReference="1057" isValueChangeable="true" classType="rPar" hideResult="" fileName="/home/nick/Mosis2/Tuning/FullPlantControllerPID.mo" endLine="2" isDiscrete="true" endColumn="24" fileWritable="true" variability="parameter" isProtected="false" startLine="2" causality="parameter" alias="noAlias" classIndex="35">
+   <Real fixed="true" useNominal="false" start="0.0"/>
+  </ScalarVariable>
+  <ScalarVariable name="ti" startColumn="3" valueReference="1058" isValueChangeable="true" classType="rPar" hideResult="" fileName="/home/nick/Mosis2/Tuning/FullPlantControllerPID.mo" endLine="3" isDiscrete="true" endColumn="26" fileWritable="true" variability="parameter" isProtected="false" startLine="3" causality="parameter" alias="noAlias" classIndex="36">
+   <Real fixed="true" useNominal="false" start="400.0"/>
+  </ScalarVariable>
+  <ScalarVariable name="yachtPlant.L" startColumn="3" valueReference="1059" isValueChangeable="true" classType="rPar" hideResult="" fileName="YachtPlant" endLine="11" isDiscrete="true" endColumn="38" fileWritable="true" variability="parameter" isProtected="false" startLine="11" causality="parameter" alias="noAlias" classIndex="37">
+   <Real fixed="true" useNominal="false" start="21.54" unit="m"/>
+  </ScalarVariable>
+  <ScalarVariable name="yachtPlant.S" startColumn="3" valueReference="1060" isValueChangeable="true" classType="rPar" hideResult="" fileName="YachtPlant" endLine="8" isDiscrete="true" endColumn="37" fileWritable="true" variability="parameter" isProtected="false" startLine="8" causality="parameter" alias="noAlias" classIndex="38">
+   <Real fixed="true" useNominal="false" start="265.0" unit="m2"/>
+  </ScalarVariable>
+  <ScalarVariable name="yachtPlant.density" startColumn="3" valueReference="1061" isValueChangeable="true" classType="rPar" hideResult="" fileName="YachtPlant" endLine="9" isDiscrete="true" endColumn="47" fileWritable="true" variability="parameter" isProtected="false" startLine="9" causality="parameter" alias="noAlias" classIndex="39">
+   <Real fixed="true" useNominal="false" start="1025.0" unit="kg/m3"/>
+  </ScalarVariable>
+  <ScalarVariable name="yachtPlant.k" startColumn="3" valueReference="1062" isValueChangeable="true" classType="rPar" hideResult="" fileName="YachtPlant" endLine="10" isDiscrete="true" endColumn="49" fileWritable="true" variability="parameter" isProtected="false" startLine="10" causality="parameter" alias="noAlias" classIndex="40">
+   <Real fixed="true" useNominal="false" start="1.188e-06" unit="m2/s"/>
+  </ScalarVariable>
+  <ScalarVariable name="yachtPlant.m" startColumn="3" valueReference="1063" isValueChangeable="true" classType="rPar" hideResult="" fileName="YachtPlant" endLine="12" isDiscrete="true" endColumn="39" fileWritable="true" variability="parameter" isProtected="false" startLine="12" causality="parameter" alias="noAlias" classIndex="41">
+   <Real fixed="true" useNominal="false" start="32000.0" unit="kg"/>
+  </ScalarVariable>
+  <ScalarVariable isValueChangeable="false" isDiscrete="false" classIndex="0" endLine="5" fileName="Costfunction" alias="alias" endColumn="204" variability="continuous" startLine="4" fileWritable="true" valueReference="1064" name="costfunction.v" hideResult="" causality="local" startColumn="3" isProtected="false" classType="rAli" aliasVariableId="2" aliasVariable="yachtPlant.v">
+   <Real fixed="false" useNominal="false" start="0.0"/>
+  </ScalarVariable>
+  <ScalarVariable isValueChangeable="false" isDiscrete="false" classIndex="1" endLine="444" fileName="/home/nick/.openmodelica/libraries/Modelica 3.2.3+maint.om/Blocks/Interfaces.mo" alias="alias" endColumn="58" variability="continuous" startLine="443" fileWritable="true" valueReference="1065" name="lookUp.lookupTable.combiTable1D.u[1]" hideResult="" causality="local" startColumn="5" isProtected="false" classType="rAli" aliasVariableId="10" description="Connector of Real input signals" aliasVariable="lookUp.continuousClock.y">
+   <Real fixed="false" useNominal="false"/>
+  </ScalarVariable>
+  <ScalarVariable isValueChangeable="false" isDiscrete="false" classIndex="2" endLine="446" fileName="/home/nick/.openmodelica/libraries/Modelica 3.2.3+maint.om/Blocks/Interfaces.mo" alias="alias" endColumn="56" variability="continuous" startLine="445" fileWritable="true" valueReference="1066" name="lookUp.lookupTable.combiTable1D.y[1]" hideResult="" causality="local" startColumn="5" isProtected="false" classType="rAli" aliasVariableId="9" description="Connector of Real output signals" aliasVariable="costfunction.vi">
+   <Real fixed="false" useNominal="false"/>
+  </ScalarVariable>
+  <ScalarVariable isValueChangeable="false" isDiscrete="false" classIndex="3" endLine="5" fileName="/home/nick/Mosis2/Tuning/LookupTable.mo" alias="alias" endColumn="200" variability="continuous" startLine="4" fileWritable="true" valueReference="1067" name="lookUp.lookupTable.x" hideResult="" causality="local" startColumn="3" isProtected="false" classType="rAli" aliasVariableId="10" aliasVariable="lookUp.continuousClock.y">
+   <Real fixed="false" useNominal="false"/>
+  </ScalarVariable>
+  <ScalarVariable isValueChangeable="false" isDiscrete="false" classIndex="4" endLine="3" fileName="/home/nick/Mosis2/Tuning/LookupTable.mo" alias="alias" endColumn="201" variability="continuous" startLine="2" fileWritable="true" valueReference="1068" name="lookUp.lookupTable.y" hideResult="" causality="local" startColumn="3" isProtected="false" classType="rAli" aliasVariableId="9" aliasVariable="costfunction.vi">
+   <Real fixed="false" useNominal="false"/>
+  </ScalarVariable>
+  <ScalarVariable isValueChangeable="false" isDiscrete="false" classIndex="5" endLine="5" fileName="/home/nick/Mosis2/Tuning/LookUp.mo" alias="alias" endColumn="201" variability="continuous" startLine="4" fileWritable="true" valueReference="1069" name="lookUp.y" hideResult="" causality="local" startColumn="3" isProtected="false" classType="rAli" aliasVariableId="9" aliasVariable="costfunction.vi">
+   <Real fixed="false" useNominal="false"/>
+  </ScalarVariable>
+  <ScalarVariable isValueChangeable="false" isDiscrete="false" classIndex="6" endLine="5" fileName="/home/nick/Mosis2/Tuning/Min.mo" alias="alias" endColumn="203" variability="continuous" startLine="4" fileWritable="true" valueReference="1070" name="min.ideal_v" hideResult="" causality="local" startColumn="3" isProtected="false" classType="rAli" aliasVariableId="9" aliasVariable="costfunction.vi">
+   <Real fixed="false" useNominal="false"/>
+  </ScalarVariable>
+  <ScalarVariable isValueChangeable="false" isDiscrete="false" classIndex="7" endLine="3" fileName="/home/nick/Mosis2/Tuning/Min.mo" alias="alias" endColumn="203" variability="continuous" startLine="2" fileWritable="true" valueReference="1071" name="min.v" hideResult="" causality="local" startColumn="3" isProtected="false" classType="rAli" aliasVariableId="2" aliasVariable="yachtPlant.v">
+   <Real fixed="false" useNominal="false"/>
+  </ScalarVariable>
+  <ScalarVariable isValueChangeable="false" isDiscrete="false" classIndex="8" endLine="972" fileName="/home/nick/.openmodelica/libraries/Modelica 3.2.3+maint.om/Blocks/Math.mo" alias="alias" endColumn="66" variability="continuous" startLine="971" fileWritable="true" valueReference="1072" name="pid.Add.u1" hideResult="" causality="local" startColumn="5" isProtected="false" classType="rAli" aliasVariableId="15" description="Connector of Real input signal 1" aliasVariable="pid.P.y">
+   <Real fixed="false" useNominal="false"/>
+  </ScalarVariable>
+  <ScalarVariable isValueChangeable="false" isDiscrete="false" classIndex="9" endLine="974" fileName="/home/nick/.openmodelica/libraries/Modelica 3.2.3+maint.om/Blocks/Math.mo" alias="alias" endColumn="66" variability="continuous" startLine="973" fileWritable="true" valueReference="1073" name="pid.Add.u2" hideResult="" causality="local" startColumn="5" isProtected="false" classType="rAli" aliasVariableId="1" description="Connector of Real input signal 2" aliasVariable="pid.I.y">
+   <Real fixed="false" useNominal="false"/>
+  </ScalarVariable>
+  <ScalarVariable isValueChangeable="false" isDiscrete="false" classIndex="10" endLine="976" fileName="/home/nick/.openmodelica/libraries/Modelica 3.2.3+maint.om/Blocks/Math.mo" alias="alias" endColumn="68" variability="continuous" startLine="975" fileWritable="true" valueReference="1074" name="pid.Add.u3" hideResult="" causality="local" startColumn="5" isProtected="false" classType="rAli" aliasVariableId="13" description="Connector of Real input signal 3" aliasVariable="pid.D.y">
+   <Real fixed="false" useNominal="false"/>
+  </ScalarVariable>
+  <ScalarVariable isValueChangeable="false" isDiscrete="false" classIndex="11" endLine="328" fileName="/home/nick/.openmodelica/libraries/Modelica 3.2.3+maint.om/Blocks/Interfaces.mo" alias="alias" endColumn="58" variability="continuous" startLine="327" fileWritable="true" valueReference="1075" name="pid.D.u" hideResult="" causality="local" startColumn="5" isProtected="false" classType="rAli" aliasVariableId="11" description="Connector of Real input signal" aliasVariable="min.vv">
+   <Real fixed="false" useNominal="false"/>
+  </ScalarVariable>
+  <ScalarVariable isValueChangeable="false" isDiscrete="false" classIndex="12" endLine="547" fileName="/home/nick/.openmodelica/libraries/Modelica 3.2.3+maint.om/Blocks/Math.mo" alias="alias" endColumn="58" variability="continuous" startLine="546" fileWritable="true" valueReference="1076" name="pid.Gain.u" hideResult="" causality="local" startColumn="5" isProtected="false" classType="rAli" aliasVariableId="12" description="Input signal connector" aliasVariable="pid.Add.y">
+   <Real fixed="false" useNominal="false"/>
+  </ScalarVariable>
+  <ScalarVariable isValueChangeable="false" isDiscrete="false" classIndex="13" endLine="549" fileName="/home/nick/.openmodelica/libraries/Modelica 3.2.3+maint.om/Blocks/Math.mo" alias="alias" endColumn="56" variability="continuous" startLine="548" fileWritable="true" valueReference="1077" name="pid.Gain.y" hideResult="" causality="local" startColumn="5" isProtected="false" classType="rAli" aliasVariableId="16" description="Output signal connector" aliasVariable="pid.y">
+   <Real fixed="false" useNominal="false"/>
+  </ScalarVariable>
+  <ScalarVariable isValueChangeable="false" isDiscrete="false" classIndex="14" endLine="328" fileName="/home/nick/.openmodelica/libraries/Modelica 3.2.3+maint.om/Blocks/Interfaces.mo" alias="alias" endColumn="58" variability="continuous" startLine="327" fileWritable="true" valueReference="1078" name="pid.I.u" hideResult="" causality="local" startColumn="5" isProtected="false" classType="rAli" aliasVariableId="11" description="Connector of Real input signal" aliasVariable="min.vv">
+   <Real fixed="false" useNominal="false"/>
+  </ScalarVariable>
+  <ScalarVariable isValueChangeable="false" isDiscrete="false" classIndex="15" endLine="547" fileName="/home/nick/.openmodelica/libraries/Modelica 3.2.3+maint.om/Blocks/Math.mo" alias="alias" endColumn="58" variability="continuous" startLine="546" fileWritable="true" valueReference="1079" name="pid.P.u" hideResult="" causality="local" startColumn="5" isProtected="false" classType="rAli" aliasVariableId="11" description="Input signal connector" aliasVariable="min.vv">
+   <Real fixed="false" useNominal="false"/>
+  </ScalarVariable>
+  <ScalarVariable isValueChangeable="false" isDiscrete="false" classIndex="16" endLine="328" fileName="/home/nick/.openmodelica/libraries/Modelica 3.2.3+maint.om/Blocks/Interfaces.mo" alias="alias" endColumn="58" variability="continuous" startLine="327" fileWritable="true" valueReference="1080" name="pid.u" hideResult="" causality="local" startColumn="5" isProtected="false" classType="rAli" aliasVariableId="11" description="Connector of Real input signal" aliasVariable="min.vv">
+   <Real fixed="false" useNominal="false"/>
+  </ScalarVariable>
+  <ScalarVariable isValueChangeable="false" isDiscrete="false" classIndex="17" endLine="20" fileName="YachtPlant" alias="alias" endColumn="200" variability="continuous" startLine="19" fileWritable="true" valueReference="1081" name="yachtPlant.Ft" hideResult="" causality="local" startColumn="3" isProtected="false" classType="rAli" aliasVariableId="16" aliasVariable="pid.y">
+   <Real fixed="false" useNominal="false" start="0.0" unit="N"/>
+  </ScalarVariable>
+  <ScalarVariable isValueChangeable="true" isDiscrete="true" classIndex="0" endLine="28" fileName="/home/nick/.openmodelica/libraries/Modelica 3.2.3+maint.om/Blocks/Tables.mo" endColumn="61" alias="noAlias" variability="parameter" startLine="26" fileWritable="true" valueReference="1082" name="lookUp.lookupTable.combiTable1D.columns[1]" hideResult="" causality="parameter" startColumn="5" isProtected="false" classType="iPar" description="Columns of table to be interpolated">
+   <Integer fixed="true" start="2"/>
+  </ScalarVariable>
+  <ScalarVariable isValueChangeable="false" isDiscrete="true" classIndex="1" endLine="34" fileName="/home/nick/.openmodelica/libraries/Modelica 3.2.3+maint.om/Blocks/Tables.mo" endColumn="61" alias="noAlias" variability="parameter" startLine="32" fileWritable="true" valueReference="1083" name="lookUp.lookupTable.combiTable1D.extrapolation" hideResult="" causality="calculatedParameter" startColumn="5" isProtected="false" classType="iPar" description="Extrapolation of data outside the definition range">
+   <Integer fixed="true" start="1"/>
+  </ScalarVariable>
+  <ScalarVariable isValueChangeable="false" isDiscrete="true" classIndex="2" endLine="442" fileName="/home/nick/.openmodelica/libraries/Modelica 3.2.3+maint.om/Blocks/Interfaces.mo" endColumn="67" alias="noAlias" variability="parameter" startLine="442" fileWritable="true" valueReference="1084" name="lookUp.lookupTable.combiTable1D.n" hideResult="" causality="calculatedParameter" startColumn="5" isProtected="false" classType="iPar" description="Number of inputs (= number of outputs)">
+   <Integer fixed="true" start="1"/>
+  </ScalarVariable>
+  <ScalarVariable isValueChangeable="false" isDiscrete="true" classIndex="3" endLine="31" fileName="/home/nick/.openmodelica/libraries/Modelica 3.2.3+maint.om/Blocks/Tables.mo" endColumn="61" alias="noAlias" variability="parameter" startLine="29" fileWritable="true" valueReference="1085" name="lookUp.lookupTable.combiTable1D.smoothness" hideResult="" causality="calculatedParameter" startColumn="5" isProtected="false" classType="iPar" description="Smoothness of table interpolation">
+   <Integer fixed="true" start="3"/>
+  </ScalarVariable>
+  <ScalarVariable isValueChangeable="false" isDiscrete="true" classIndex="4" endLine="303" fileName="/home/nick/.openmodelica/libraries/Modelica 3.2.3+maint.om/Blocks/Continuous.mo" endColumn="40" alias="noAlias" variability="parameter" startLine="300" fileWritable="true" valueReference="1086" name="pid.D.initType" hideResult="" causality="calculatedParameter" startColumn="5" isProtected="false" classType="iPar" description="Type of initialization (1: no init, 2: steady state, 3: initial state, 4: initial output)">
+   <Integer fixed="true" start="1"/>
+  </ScalarVariable>
+  <ScalarVariable isValueChangeable="false" isDiscrete="true" classIndex="5" endLine="21" fileName="/home/nick/.openmodelica/libraries/Modelica 3.2.3+maint.om/Blocks/Continuous.mo" endColumn="40" alias="noAlias" variability="parameter" startLine="19" fileWritable="true" valueReference="1087" name="pid.I.initType" hideResult="" causality="calculatedParameter" startColumn="5" isProtected="false" classType="iPar" description="Type of initialization (1: no init, 2: steady state, 3,4: initial output)">
+   <Integer fixed="true" start="3"/>
+  </ScalarVariable>
+  <ScalarVariable isValueChangeable="false" isDiscrete="true" classIndex="6" endLine="724" fileName="/home/nick/.openmodelica/libraries/Modelica 3.2.3+maint.om/Blocks/Continuous.mo" endColumn="40" alias="noAlias" variability="parameter" startLine="721" fileWritable="true" valueReference="1088" name="pid.initType" hideResult="" causality="calculatedParameter" startColumn="5" isProtected="false" classType="iPar" description="Type of initialization (1: no init, 2: steady state, 3: initial state, 4: initial output)">
+   <Integer fixed="true" start="5"/>
+  </ScalarVariable>
+  <ScalarVariable name="pid.I.local_reset" startColumn="5" valueReference="1089" isValueChangeable="false" classType="bAlg" hideResult="true" fileName="/home/nick/.openmodelica/libraries/Modelica 3.2.3+maint.om/Blocks/Continuous.mo" endLine="36" isDiscrete="true" endColumn="85" fileWritable="true" variability="discrete" isProtected="true" startLine="36" causality="local" alias="noAlias" classIndex="0">
+   <Boolean fixed="true"/>
+  </ScalarVariable>
+  <ScalarVariable isValueChangeable="false" isDiscrete="true" classIndex="0" endLine="10" fileName="/home/nick/.openmodelica/libraries/Modelica 3.2.3+maint.om/Blocks/Tables.mo" endColumn="57" alias="noAlias" variability="parameter" startLine="8" fileWritable="true" valueReference="1090" name="lookUp.lookupTable.combiTable1D.tableOnFile" hideResult="" causality="calculatedParameter" startColumn="5" isProtected="false" classType="bPar" description="= true, if table is defined on file or in function usertab">
+   <Boolean fixed="true" start="false"/>
+  </ScalarVariable>
+  <ScalarVariable isValueChangeable="false" isDiscrete="true" classIndex="1" endLine="37" fileName="/home/nick/.openmodelica/libraries/Modelica 3.2.3+maint.om/Blocks/Tables.mo" endColumn="206" alias="noAlias" variability="parameter" startLine="35" fileWritable="true" valueReference="1091" name="lookUp.lookupTable.combiTable1D.verboseExtrapolation" hideResult="" causality="calculatedParameter" startColumn="5" isProtected="false" classType="bPar" description="= true, if warning messages are to be printed if table input is outside the definition range">
+   <Boolean fixed="true" start="false"/>
+  </ScalarVariable>
+  <ScalarVariable isValueChangeable="true" isDiscrete="true" classIndex="2" endLine="25" fileName="/home/nick/.openmodelica/libraries/Modelica 3.2.3+maint.om/Blocks/Tables.mo" endColumn="76" alias="noAlias" variability="parameter" startLine="23" fileWritable="true" valueReference="1092" name="lookUp.lookupTable.combiTable1D.verboseRead" hideResult="" causality="parameter" startColumn="5" isProtected="false" classType="bPar" description="= true, if info message that file is loading is to be printed">
+   <Boolean fixed="true" start="true"/>
+  </ScalarVariable>
+  <ScalarVariable name="pid.D.zeroGain" startColumn="5" valueReference="1093" isValueChangeable="false" classType="bPar" hideResult="" fileName="/home/nick/.openmodelica/libraries/Modelica 3.2.3+maint.om/Blocks/Continuous.mo" endLine="314" isDiscrete="true" endColumn="65" fileWritable="true" variability="parameter" isProtected="true" startLine="314" causality="calculatedParameter" alias="noAlias" classIndex="3">
+   <Boolean fixed="true" start="true"/>
+  </ScalarVariable>
+  <ScalarVariable isValueChangeable="false" isDiscrete="true" classIndex="4" endLine="12" fileName="/home/nick/.openmodelica/libraries/Modelica 3.2.3+maint.om/Blocks/Continuous.mo" endColumn="73" alias="noAlias" variability="parameter" startLine="11" fileWritable="true" valueReference="1094" name="pid.I.use_reset" hideResult="true" causality="calculatedParameter" startColumn="5" isProtected="false" classType="bPar" description="=true, if reset port enabled">
+   <Boolean fixed="true" start="false"/>
+  </ScalarVariable>
+  <ScalarVariable isValueChangeable="false" isDiscrete="true" classIndex="5" endLine="14" fileName="/home/nick/.openmodelica/libraries/Modelica 3.2.3+maint.om/Blocks/Continuous.mo" endColumn="99" alias="noAlias" variability="parameter" startLine="13" fileWritable="true" valueReference="1095" name="pid.I.use_set" hideResult="true" causality="calculatedParameter" startColumn="5" isProtected="false" classType="bPar" description="=true, if set port enabled and used as reinitialization value when reset">
+   <Boolean fixed="true" start="false"/>
+  </ScalarVariable>
+  <ScalarVariable isValueChangeable="true" isDiscrete="true" classIndex="0" endLine="22" fileName="/home/nick/.openmodelica/libraries/Modelica 3.2.3+maint.om/Blocks/Tables.mo" endColumn="61" alias="noAlias" variability="parameter" startLine="17" fileWritable="true" valueReference="1096" name="lookUp.lookupTable.combiTable1D.fileName" hideResult="" causality="parameter" startColumn="5" isProtected="false" classType="sPar" description="File where matrix is stored">
+   <String fixed="true" start="NoName"/>
+  </ScalarVariable>
+  <ScalarVariable isValueChangeable="true" isDiscrete="true" classIndex="1" endLine="16" fileName="/home/nick/.openmodelica/libraries/Modelica 3.2.3+maint.om/Blocks/Tables.mo" endColumn="76" alias="noAlias" variability="parameter" startLine="14" fileWritable="true" valueReference="1097" name="lookUp.lookupTable.combiTable1D.tableName" hideResult="" causality="parameter" startColumn="5" isProtected="false" classType="sPar" description="Table name on file or in function usertab (see docu)">
+   <String fixed="true" start="NoName"/>
+  </ScalarVariable>
+ </ModelVariables>
+</fmiModelDescription>
