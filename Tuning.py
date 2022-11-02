@@ -12,14 +12,14 @@ __MSE__ = True
 MSE_index = 150
 MSE_value = float('inf')
 
+start_Kp = 6000
+end_Kp = 7000
+
 start_Ki = 300
 end_Ki = 350
 
 start_Kd = -1
 end_Kd = 1
-
-start_Kp = 6000
-end_Kp = 7000
 
 
 if __name__ == '__main__':
@@ -29,19 +29,18 @@ if __name__ == '__main__':
 
     S_list = []
     MSE_list = []
+    ilovenick = []
 
     if __make_csv__:
-        for Kp in range (start_Kp, start_Kd, 10):
+        for Kp in range(start_Kp, end_Kp+1, 10):
             for Ki in range(start_Ki, end_Ki+1):
                 for Kd in range(start_Kd, end_Kd+1):
-                os.system(f"YachtPlant_accelerate/YachtPlant_accelerate -override S={S}")
-                YachtPlant = pd.read_csv("YachtPlant_accelerate_res.csv", delimiter=",",skiprows=[3,4],skipfooter=1, usecols=["time", "v"])
-                YachtPlant.to_csv(f"csv/accelerate/S{S}.csv", index=False)
+                    os.system(f"YachtPlant_accelerate/YachtPlant_accelerate -override S={S}")
+                    YachtPlant = pd.read_csv("YachtPlant_accelerate_res.csv", delimiter=",",skiprows=[3,4],skipfooter=1, usecols=["time", "v"])
 
-        for S in range(start_S, end_S+1):
-            os.system(f"YachtPlant_decelerate/YachtPlant_decelerate -override S={S}")
-            YachtPlant = pd.read_csv("YachtPlant_decelerate_res.csv", delimiter=",",skipfooter=1, usecols=["time", "v"])
-            YachtPlant.to_csv(f"csv/decelerate/S{S}.csv", index=False)
+                    MSE = mean_squared_error(samples.values, model.values)
+                    MSE_list.append(MSE)
+                    #YachtPlant.to_csv(f"csv/accelerate/S{S}.csv", index=False)
 
     if __MSE__:
         for S in range(start_S, end_S+1):
